@@ -112,17 +112,23 @@ export function activate(context: vscode.ExtensionContext) {
 		}
 
 	};
-	
-	setInterval(async () => {
 
+	let updateStatusAllRepos = async () => {
 		let gitExtension = vscode.extensions.getExtension('vscode.git')?.exports;
 		let api = gitExtension.getAPI(1);
 
 		api.repositories.forEach(async (repo: any) => {
 			updateStatus(repo);
-		});			
-		
+		});	
+	};
+
+	setInterval(async () => {
+		await updateStatusAllRepos();		
 	}, 60000);
+
+	setTimeout(async () => {
+		await updateStatusAllRepos();
+	}, 5000);
 
 }
 
