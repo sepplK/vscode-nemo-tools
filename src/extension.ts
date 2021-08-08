@@ -1,6 +1,3 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
-import { stat } from 'fs';
 import * as vscode from 'vscode';
 import { ThemeColor } from 'vscode';
 
@@ -110,7 +107,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 		if(modified) {
 			vscode.window.showInformationMessage(`Aktiver Git User wurde in ${nemoUsername} geändert`);
-		// }
+		}
 
 	};
 	
@@ -121,12 +118,10 @@ export function activate(context: vscode.ExtensionContext) {
 
 		api.repositories.forEach(async (repo: any) => {
 			updateStatus(repo);
-		});	
-		
+		});			
 		
 	}, 5000);
 
 }
 
 export function deactivate() {}
-
