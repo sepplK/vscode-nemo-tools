@@ -23,7 +23,7 @@ export function activate(context: vscode.ExtensionContext) {
 			status = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left, 500);
 			status.repo = repoName;
 			status.text = `${repoName} (Benutzer wird ermittelt)`;
-			status.command = 'nemo-vscode.switchuser' + repoName;
+			status.command = 'vscode-nemo-tools.switchuser' + repoName;
 
 			vscode.commands.registerCommand(status.command, async (x) => {
 				await switchUser(repo);		
@@ -53,7 +53,7 @@ export function activate(context: vscode.ExtensionContext) {
 					if(nemoUsername !== gitUser) {
 						msg = `Git: ${gitUser} / Workspace: ${nemoUsername}`;
 						status.tooltip = `Git User fixen`;
-						status.command = 'nemo-vscode.switchuser';
+						status.command = 'vscode-nemo-tools.switchuser';
 						state = 'warning';
 					} else {
 						delete status.tooltip;

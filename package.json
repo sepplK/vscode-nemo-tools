@@ -1,7 +1,7 @@
 {
-	"name": "nemo-vscode",
-	"displayName": "firstvoucher Extensions",
-	"description": "Extensions for the firstvoucher Code Editor",
+	"name": "vscode-nemo-tools",
+	"displayName": "firstvoucher Tools",
+	"description": "Tools for the firstvoucher Code Editor",
 	"publisher": "prointernet",
 	"version": "0.0.6",
 	"engines": {

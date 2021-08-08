@@ -4,6 +4,6 @@
 	"recommendations": [
 		"dbaeumer.vscode-eslint",
 		"eamodio.tsl-problem-matcher",
-		"prointernet.nemo-vscode"
+		"prointernet.vscode-nemo-tools"
 	]
 }
