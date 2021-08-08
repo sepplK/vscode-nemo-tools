@@ -48,8 +48,8 @@ export function activate(context: vscode.ExtensionContext) {
 				let nemoUsername = nemoConfig.get('username');
 				if(nemoUsername) {
 					if(nemoUsername !== gitUser) {
-						msg = `Git: ${gitUser} / Workspace: ${nemoUsername}`;
-						status.tooltip = `Git User fixen`;
+						msg = gitUser;
+						status.tooltip = `Git User wechseln zu ${nemoUsername}`;
 						status.command = 'vscode-nemo-tools.switchuser';
 						state = 'warning';
 					} else {
