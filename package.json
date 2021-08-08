@@ -3,7 +3,7 @@
 	"displayName": "firstvoucher Tools",
 	"description": "Tools for the firstvoucher Code Editor",
 	"publisher": "prointernet",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"engines": {
 		"vscode": "^1.50.0"
 	},

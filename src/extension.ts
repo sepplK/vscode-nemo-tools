@@ -5,9 +5,9 @@ import { ThemeColor } from 'vscode';
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
 
-	let items: any [] = [];
+	const items: any [] = [];
 
-	let updateStatus = async (repo: any) => {
+	const updateStatus = async (repo: any) => {
 		let msg;
 
 		let repoName = repo.rootUri.path.split('/').reverse()[0];
@@ -80,7 +80,7 @@ export function activate(context: vscode.ExtensionContext) {
 		}
 	};
 
-	let switchUser = async (repo : any) => {
+	const switchUser = async (repo : any) => {
 		
 		let config = vscode.workspace.getConfiguration('nemo');
 
@@ -109,11 +109,12 @@ export function activate(context: vscode.ExtensionContext) {
 
 		if(modified) {
 			vscode.window.showInformationMessage(`Aktiver Git User wurde in ${nemoUsername} geändert`);
+			await updateStatusAllRepos();
 		}
 
 	};
 
-	let updateStatusAllRepos = async () => {
+	const updateStatusAllRepos = async () => {
 		let gitExtension = vscode.extensions.getExtension('vscode.git')?.exports;
 		let api = gitExtension.getAPI(1);
 
