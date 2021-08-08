@@ -16,11 +16,13 @@ export function activate(context: vscode.ExtensionContext) {
 			return i.repo === repoName;	
 		});
 
+		let commandName = 'vscode-nemo-tools.switchuser' + repoName;
+
 		if(!status) {
 			status = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left, 500);
 			status.repo = repoName;
 			status.text = `${repoName} (Benutzer wird ermittelt)`;
-			status.command = 'vscode-nemo-tools.switchuser' + repoName;
+			status.command = commandName;
 
 			vscode.commands.registerCommand(status.command, async (x) => {
 				await switchUser(repo);		
@@ -50,7 +52,7 @@ export function activate(context: vscode.ExtensionContext) {
 					if(nemoUsername !== gitUser) {
 						msg = gitUser;
 						status.tooltip = `Git User wechseln zu ${nemoUsername}`;
-						status.command = 'vscode-nemo-tools.switchuser';
+						status.command = commandName;
 						state = 'warning';
 					} else {
 						delete status.tooltip;
@@ -120,7 +122,7 @@ export function activate(context: vscode.ExtensionContext) {
 			updateStatus(repo);
 		});			
 		
-	}, 5000);
+	}, 60000);
 
 }
 
